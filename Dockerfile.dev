@@ -6,4 +6,4 @@ VOLUME /src
 
 WORKDIR /src
 
-CMD CompileDaemon -build="go build -o ./bin cmd/main/main.go" -command="./bin/main" -exclude-dir=".git" -exclude-dir=".pnpm-store" -exclude-dir="frontend/node_modules"
+CMD CompileDaemon -build="go build -o ./bin cmd/main/main.go" -command="./bin/main" -exclude-dir=".git" -exclude-dir="frontend/node_modules"
