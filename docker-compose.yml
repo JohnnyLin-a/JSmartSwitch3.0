@@ -12,7 +12,7 @@ services:
       - ./:/src
     network_mode: host
   
-  webserver:
+  nginx:
     image: nginx:alpine
     restart: unless-stopped
     volumes:
