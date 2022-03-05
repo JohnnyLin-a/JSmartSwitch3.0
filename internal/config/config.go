@@ -6,6 +6,11 @@ type configDB struct {
 	Process struct {
 		Port string `env:"PORT" env-required:"true"`
 	}
+	WOL struct {
+		Port        string `env:"WOL_PORT" env-required:"true"`
+		BroadcastIP string `env:"WOL_BROADCAST_IP" env-required:"true"`
+		MacAddr     string `env:"WOL_MAC_ADDR" env-required:"true"`
+	}
 }
 
 var Get configDB
