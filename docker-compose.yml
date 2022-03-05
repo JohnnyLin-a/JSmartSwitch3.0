@@ -26,4 +26,4 @@ services:
       - ./:/src
     network_mode: host
     working_dir: /src/frontend
-    command: bash -c "npm run start"
+    command: bash -c "yarn start"
