@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/ilyakaznacheev/cleanenv v1.2.6
+	github.com/johnnylin-a/go-wol-lib v0.0.0-20220305204357-149ee4098aa0
 )
 
 require (
