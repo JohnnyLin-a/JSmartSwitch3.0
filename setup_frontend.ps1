@@ -1,0 +1,1 @@
+docker run --rm -it -v ${PWD}:/src -w /src node:16-bullseye bash -c "npm i -g pnpm && pnpm install"

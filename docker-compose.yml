@@ -1,0 +1,29 @@
+version: '2.4'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./:/src
+    network_mode: host
+  
+  webserver:
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d/app/
+    network_mode: host
+
+  frontend:
+    image: node:16-bullseye
+    restart: unless-stopped
+    volumes:
+      - ./:/src
+    network_mode: host
+    working_dir: /src/frontend
+    command: bash -c "npm run start"

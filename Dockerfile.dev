@@ -1,0 +1,9 @@
+FROM golang:1.17-bullseye
+
+RUN go install github.com/githubnemo/CompileDaemon@87e39427f4ba26da4400abf3b26b2e58bfc9ebe6
+
+VOLUME /src
+
+WORKDIR /src
+
+CMD CompileDaemon -build="go build -o ./bin cmd/main/main.go" -command="./bin/main" -exclude-dir=".git" -exclude-dir=".pnpm-store" -exclude-dir="frontend/node_modules"
