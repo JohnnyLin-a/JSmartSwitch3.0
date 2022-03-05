@@ -1,3 +1,4 @@
 bin/*
 /.pnpm-store
 .env
+!bin/dummy
