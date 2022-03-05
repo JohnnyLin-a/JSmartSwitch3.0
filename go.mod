@@ -5,6 +5,8 @@ go 1.17
 require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/ilyakaznacheev/cleanenv v1.2.6
+	github.com/johnnylin-a/go-hs100 v0.5.1-0.20220305194713-572ed87b6fe6
+	github.com/johnnylin-a/go-magic-home v1.2.1-0.20220305215916-99511e72a6a5
 	github.com/johnnylin-a/go-wol-lib v0.0.0-20220305204357-149ee4098aa0
 )
 

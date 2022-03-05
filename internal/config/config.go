@@ -11,6 +11,12 @@ type configDB struct {
 		BroadcastIP string `env:"WOL_BROADCAST_IP" env-required:"true"`
 		MacAddr     string `env:"WOL_MAC_ADDR" env-required:"true"`
 	}
+	HS100 struct {
+		BroadcastIP string `env:"HS100_BROADCAST_IP" env-required:"true"`
+	}
+	MagicHome struct {
+		BroadcastIP string `env:"MAGICHOME_BROADCAST_IP" env-required:"true"`
+	}
 }
 
 var Get configDB

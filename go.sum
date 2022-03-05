@@ -29,6 +29,10 @@ github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/
 github.com/google/gofuzz v1.0.0/go.mod h1:dBl0BpW6vV/+mYPU4Po3pmUjxk6FQPldtuIdl/M65Eg=
 github.com/ilyakaznacheev/cleanenv v1.2.6 h1:oJRaVZfAI0xdA5LJNguuKH2ldVJg44SP8GqkEn/cw7w=
 github.com/ilyakaznacheev/cleanenv v1.2.6/go.mod h1:C3bB+MJ+LjECYlw2k7CSagKGfL1Ym2ywfjj40RjXJ24=
+github.com/johnnylin-a/go-hs100 v0.5.1-0.20220305194713-572ed87b6fe6 h1:6dFh1Q1weYKY7b8NgwV+mNkGU/SJpK+0nlzFxdvfNEA=
+github.com/johnnylin-a/go-hs100 v0.5.1-0.20220305194713-572ed87b6fe6/go.mod h1:AyBu8JWMqTCD/LTTd1XBUBUAO/PPsvsHsSfiu1//51g=
+github.com/johnnylin-a/go-magic-home v1.2.1-0.20220305215916-99511e72a6a5 h1:RBms7It8qbKotn3R5luwnxUPoiTleZ5ekS9y2aar1Lk=
+github.com/johnnylin-a/go-magic-home v1.2.1-0.20220305215916-99511e72a6a5/go.mod h1:aJrwIxF2AyzNmQlL2ytcblAWdLNVT61tRBkOZ3HK4dg=
 github.com/johnnylin-a/go-wol-lib v0.0.0-20220305204357-149ee4098aa0 h1:bYWEay5IDH/VbMJbGcX+3PvoO5/tQDAfbu3/eMvVZoo=
 github.com/johnnylin-a/go-wol-lib v0.0.0-20220305204357-149ee4098aa0/go.mod h1:HnmiYdEHKmzfF3odKrmscxOuRdsY8sHtjJtuz31Wqu4=
 github.com/joho/godotenv v1.3.0/go.mod h1:7hK45KPybAkOC6peb+G5yklZfMxEjkZhHbwpqxOKXbg=
