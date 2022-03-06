@@ -1,0 +1,19 @@
+version: '2.4'
+
+services:
+  backend:
+    image: jsmartswitch30_backend
+    env_file:
+      - .env
+    restart: unless-stopped
+    network_mode: host
+  
+  nginx:
+    image: jsmartswitch30_nginx
+    restart: unless-stopped
+    network_mode: host
+
+  frontend:
+    image: jsmartswitch30_frontend
+    restart: unless-stopped
+    network_mode: host
