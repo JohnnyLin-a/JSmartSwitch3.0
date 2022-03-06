@@ -4,7 +4,7 @@ COPY ./frontend /src
 
 WORKDIR /src
 
-RUN yarn install
+RUN yarn install --production=true
 
 RUN yarn build
 
