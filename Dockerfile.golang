@@ -1,4 +1,4 @@
-FROM golang:1.17-alpine
+FROM golang:1.17-alpine as builder
 
 COPY . /src
 
@@ -8,6 +8,6 @@ RUN go build cmd/main/main.go
 
 FROM alpine:3.15
 
-COPY --from=0 /src/main /
+COPY --from=builder /src/main /
 
 CMD /main

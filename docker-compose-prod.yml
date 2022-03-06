@@ -1,0 +1,26 @@
+version: '2.4'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.golang
+    restart: unless-stopped
+    env_file:
+      - .env
+    network_mode: host
+  
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    restart: unless-stopped
+    network_mode: host
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    restart: unless-stopped
+    network_mode: host
+    command: serve -s /build
