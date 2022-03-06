@@ -2,3 +2,4 @@
 ./frontend/build
 .env
 ./bin
+Dockerfile*
