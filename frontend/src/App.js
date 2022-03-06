@@ -2,34 +2,35 @@
 function App() {
 
   const openComputer = async () => {
-    console.log("openComputer")
     fetch('/api/v1/wol/wake', { method: 'POST'})
-      .then(response => response.json())
-      .then(data => console.log(data));
   }
 
   const openLights = async () => {
-    console.log("openLights")
     fetch('/api/v1/lights/on', { method: 'POST'})
-      .then(response => response.json())
-      .then(data => console.log(data));
   }
 
   const closeLights = async () => {
-    console.log("closeLights")
     fetch('/api/v1/lights/off', { method: 'POST'})
-      .then(response => response.json())
-      .then(data => console.log(data));
   }
 
   return (
-    <div style={{ backgroundColor: "black"}}>
-      <header>
-        <p>Year 2000 edition</p>
+    <div style={{ display: "flex", flexDirection: "column", backgroundColor: "black", minHeight: "100%" }}>
+      <header style={{ display: "flex", flex: 1, alignItems:"center" }}>
+        <div className="container">
+          <h1 style={{ textAlign: "center", color: "white", fontSize: "8em" }}>Command Center</h1>
+        </div>
       </header>
-      <button onClick={openComputer}>Power on computer</button><br/><br/>
-      <button onClick={openLights}>Open lights</button><br/><br/>
-      <button onClick={closeLights}>Close lights</button>
+      <div style={{ display: "flex", flex: 3, flexDirection: "column", alignItems: "center"}}>
+        <div style={{ justifyContent: "center"}}>
+          <div className="container" style={{ }}>
+            <button className="btn btn-warning" style={{ }} onClick={openComputer}>Power on computer</button>
+          </div>
+          <div className="container" style={{ }}>
+            <button className="btn btn-success" onClick={openLights}>Open lights</button>
+            <button className="btn btn-danger"onClick={closeLights}>Close lights</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

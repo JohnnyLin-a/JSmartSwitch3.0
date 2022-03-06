@@ -1,4 +1,12 @@
 html {
     background-color: black;
-    color: white;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+#root {
+    height: 100%;
 }
