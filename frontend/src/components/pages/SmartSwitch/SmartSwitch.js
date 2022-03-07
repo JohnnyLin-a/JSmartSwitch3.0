@@ -1,7 +1,40 @@
+import { useState } from "react";
 import "./SmartSwitch.css"
 
 
 const SmartSwitch = () => {
+  const [confirmations, setConfirmations] = useState({});
+
+  const resetConfirmation = key => {
+    return () => {
+      let currentState = { ...confirmations }
+      delete currentState[key]
+      setConfirmations(currentState)
+    }
+  }
+
+  const misclickConfirm = (callback, key) => {
+    return () => {
+      const now = new Date().toLocaleTimeString("en-GB", { timeZone: "America/New_York" });
+      const hour = parseInt(now.substr(0, now.indexOf(":")));
+      
+      
+      if (hour <= 23 && hour >= 7) {
+        callback()
+        return
+      }
+      
+      let currentState = { ...confirmations }
+      if (typeof currentState[key] === 'undefined') {
+        currentState[key] = {}
+        setConfirmations(currentState)
+        setTimeout(resetConfirmation(key), 3000)
+      } else {
+        resetConfirmation(key)()
+        callback()
+      }
+    }
+  }
 
   const openComputer = async () => {
     fetch('/api/v1/wol/wake', { method: 'POST'})
@@ -22,7 +55,7 @@ const SmartSwitch = () => {
       </div>
       <div className="super-center flex-column" style={{ height: "75%" }}>
         <div className="m-3" style={{ width: "80%", height: "8rem" }}>
-          <button className="btn btn-warning btn-block" style={{ width: "100%", height: "100%", fontSize: "3em" }} onClick={openComputer}>Open computer</button>
+          <button className="btn btn-warning btn-block" style={{ width: "100%", height: "100%", fontSize: "3em" }} onClick={misclickConfirm(openComputer, "Open computer")}>{typeof confirmations["Open computer"] === 'undefined' ? "Open computer" : "Confirm?"}</button>
         </div>
         <div className="m-3 d-flex flex-row" style={{ width: "80%", height: "8rem" }}>
           <div style={{ paddingRight: "1rem", width: "50%" }}>
