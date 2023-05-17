@@ -10,6 +10,7 @@ type configDB struct {
 		Port        string `env:"WOL_PORT" env-required:"true"`
 		BroadcastIP string `env:"WOL_BROADCAST_IP" env-required:"true"`
 		MacAddr     string `env:"WOL_MAC_ADDR" env-required:"true"`
+		MacAddrNAS  string `env:"WOL_MAC_ADDR_NAS" env-required:"true"`
 	}
 	HS100 struct {
 		BroadcastIP string `env:"HS100_BROADCAST_IP" env-required:"true"`

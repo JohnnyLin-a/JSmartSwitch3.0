@@ -14,14 +14,14 @@ const SmartSwitch = () => {
     }
   }
 
-  const misclickConfirm = (callback, key) => {
+  const misclickConfirm = (callback, callbackArg, key) => {
     return () => {
       const now = new Date().toLocaleTimeString("en-GB", { timeZone: "America/New_York" });
       const hour = parseInt(now.substr(0, now.indexOf(":")));
       
       
       if (hour <= 23 && hour >= 7) {
-        callback()
+        callback(callbackArg)
         return
       }
       
@@ -32,21 +32,21 @@ const SmartSwitch = () => {
         setTimeout(resetConfirmation(key), 3000)
       } else {
         resetConfirmation(key)()
-        callback()
+        callback(callbackArg)
       }
     }
   }
 
-  const openComputer = async () => {
-    fetch('/api/v1/wol/wake', { method: 'POST'})
-    setMessage("Opened computer")
+  const openComputer = async ({ type }) => {
+    await fetch('/api/v1/wol/wake', { method: 'POST', body: JSON.stringify({ type })})
+    setMessage("Opened computer: " + type)
     setTimeout(() => {
       setMessage("")
     }, 3000)
   }
 
   const openLights = async () => {
-    fetch('/api/v1/lights/on', { method: 'POST'})
+    await fetch('/api/v1/lights/on', { method: 'POST'})
     setMessage("Opened lights")
     setTimeout(() => {
       setMessage("")
@@ -54,7 +54,7 @@ const SmartSwitch = () => {
   }
 
   const closeLights = async () => {
-    fetch('/api/v1/lights/off', { method: 'POST'})
+    await fetch('/api/v1/lights/off', { method: 'POST'})
     setMessage("Closed lights")
     setTimeout(() => {
       setMessage("")
@@ -68,7 +68,10 @@ const SmartSwitch = () => {
       </div>
       <div className="super-center flex-column" style={{ height: "55%" }}>
         <div className="m-3" style={{ width: "80%", height: "8rem" }}>
-          <button className="btn btn-warning btn-block" style={{ width: "100%", height: "100%", fontSize: "3em" }} onClick={misclickConfirm(openComputer, "Open computer")}>{typeof confirmations["Open computer"] === 'undefined' ? "Open computer" : "Confirm?"}</button>
+          <button className="btn btn-warning btn-block" style={{ width: "100%", height: "100%", fontSize: "3em" }} onClick={misclickConfirm(openComputer, {type: "main"}, "Open computer")}>{typeof confirmations["Open computer"] === 'undefined' ? "Open computer" : "Confirm?"}</button>
+        </div>
+        <div className="m-3" style={{ width: "80%", height: "8rem" }}>
+          <button className="btn btn-info btn-block" style={{ width: "100%", height: "100%", fontSize: "3em" }} onClick={misclickConfirm(openComputer, {type: "nas"}, "Open NAS")}>{typeof confirmations["Open NAS"] === 'undefined' ? "Open NAS" : "Confirm?"}</button>
         </div>
         <div className="m-3 d-flex flex-row" style={{ width: "80%", height: "8rem" }}>
           <div style={{ paddingRight: "1rem", width: "50%" }}>
