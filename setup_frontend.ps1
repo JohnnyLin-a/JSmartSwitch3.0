@@ -1,1 +1,1 @@
-docker run --rm -it -v ${PWD}:/src -w /src/frontend node:16-bullseye bash -c "yarn install"
+docker run --rm -it -v ${PWD}:/src -w /src/frontend node:18-bullseye bash -c "yarn install"

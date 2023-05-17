@@ -20,7 +20,7 @@ services:
     network_mode: host
 
   frontend:
-    image: node:16-bullseye
+    image: node:18-bullseye
     restart: unless-stopped
     volumes:
       - ./:/src

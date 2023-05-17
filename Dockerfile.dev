@@ -1,4 +1,4 @@
-FROM golang:1.17-bullseye
+FROM golang:1.20-bullseye
 
 RUN go install github.com/githubnemo/CompileDaemon@87e39427f4ba26da4400abf3b26b2e58bfc9ebe6
 
